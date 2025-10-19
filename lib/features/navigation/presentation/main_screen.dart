@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jal_shakti_app/features/dashboard/presentation/dashboard_screen.dart';
 import 'package:jal_shakti_app/features/home/presentation/home_screen.dart';
 import 'package:jal_shakti_app/features/map/presentation/map_screen.dart';
+import 'package:jal_shakti_app/features/profile/presentation/profile_screen.dart';
 import 'package:jal_shakti_app/features/profession/presentation/profession_screen.dart';
 import 'package:jal_shakti_app/shared/widgets/main_drawer.dart';
 
@@ -27,14 +28,24 @@ class _MainScreenState extends State<MainScreen> {
   static const List<String> _widgetTitles = <String>[
     'Jal Shakti',
     'Dashboard',
-    'Map',
-    'Profession',
+    'DWLR Map',
+    'Profession Section',
   ];
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+  // --- NEW: Callback for the drawer to change the main screen index ---
+  void _onDrawerItemTapped(int index) {
+    // Check if the item is one of the main screens
+    if (index >= 0 && index < _widgetOptions.length) {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
   }
 
   @override
@@ -47,13 +58,17 @@ class _MainScreenState extends State<MainScreen> {
           IconButton(
             icon: const Icon(Icons.person_outline),
             onPressed: () {
-              // TODO: Navigate to Profile Page
+              // Navigate to Profile Page using a standard push
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const ProfileScreen(),
+              ));
             },
           ),
           const SizedBox(width: 8),
         ],
       ),
-      drawer: const MainDrawer(),
+      // --- MODIFIED: Pass the callback to the drawer ---
+      drawer: MainDrawer(onSelectItem: _onDrawerItemTapped),
       body: IndexedStack(
         index: _selectedIndex,
         children: _widgetOptions,
