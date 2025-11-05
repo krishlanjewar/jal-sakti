@@ -102,13 +102,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ? FileImage(_profileImage!)
                       : const AssetImage('assets/images/avatar_placeholder.png')
                           as ImageProvider,
-                  child: Align(
+                  child: const Align(
                     alignment: Alignment.bottomRight,
                     child: CircleAvatar(
                       radius: 18,
                       backgroundColor: AppTheme.primaryBlue,
                       child:
-                          const Icon(Icons.edit, size: 20, color: Colors.white),
+                          Icon(Icons.edit, size: 20, color: Colors.white),
                     ),
                   ),
                 ),

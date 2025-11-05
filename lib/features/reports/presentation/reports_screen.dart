@@ -100,9 +100,9 @@ class _ReportsScreenState extends State<ReportsScreen> {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 8),
-        Chip(
-          label: const Text('Date Range: Jan 2023 - Dec 2023'),
-          avatar: const Icon(Icons.calendar_today, size: 16),
+        const Chip(
+          label: Text('Date Range: Jan 2023 - Dec 2023'),
+          avatar: Icon(Icons.calendar_today, size: 16),
           backgroundColor: AppTheme.lightGray,
         ),
       ],

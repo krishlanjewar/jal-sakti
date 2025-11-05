@@ -167,7 +167,7 @@ class _SubSection extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
-          ...points.map((point) => _BulletPoint(text: point)).toList(),
+          ...points.map((point) => _BulletPoint(text: point)),
         ],
       ),
     );

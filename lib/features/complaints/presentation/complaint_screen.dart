@@ -21,7 +21,7 @@ class _ComplaintPageState extends State<ComplaintPage> {
   // State variables
   String? _selectedCategory;
   Urgency? _selectedUrgency;
-  List<XFile> _pickedImages = [];
+  final List<XFile> _pickedImages = [];
   Position? _currentPosition;
   bool _isFetchingLocation = false;
 
@@ -131,7 +131,7 @@ class _ComplaintPageState extends State<ComplaintPage> {
                   child: Column(
                     children: [
                       DropdownButtonFormField<String>(
-                        value: _selectedCategory,
+                        initialValue: _selectedCategory,
                         hint: const Text('Select Complaint Category'),
                         items: _categories.map((String category) {
                           return DropdownMenuItem<String>(

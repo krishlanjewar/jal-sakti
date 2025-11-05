@@ -396,7 +396,7 @@ class DashboardScreen extends ConsumerWidget {
           getTooltipItems: (List<LineBarSpot> touchedBarSpots) {
             return touchedBarSpots.map((barSpot) {
               return LineTooltipItem(
-                '${barSpot.y.toStringAsFixed(1)}',
+                barSpot.y.toStringAsFixed(1),
                 TextStyle(
                   color: Colors.blueGrey
                       .withOpacity(0.8),
@@ -410,19 +410,19 @@ class DashboardScreen extends ConsumerWidget {
       minY: (minY - 5).floorToDouble(),
       maxY: (maxY + 5).ceilToDouble(),
       gridData: const FlGridData(show: false),
-      titlesData: FlTitlesData(
+      titlesData: const FlTitlesData(
         show: true,
         rightTitles:
-            const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            AxisTitles(sideTitles: SideTitles(showTitles: false)),
         topTitles:
-            const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            AxisTitles(sideTitles: SideTitles(showTitles: false)),
         bottomTitles: AxisTitles(
             sideTitles: SideTitles(
                 showTitles: true,
                 reservedSize: 30,
                 interval: 1,
                 getTitlesWidget: _bottomTitles)),
-        leftTitles: const AxisTitles(
+        leftTitles: AxisTitles(
             sideTitles: SideTitles(showTitles: true, reservedSize: 40)),
       ),
       borderData: FlBorderData(show: false),
@@ -495,7 +495,7 @@ class DashboardScreen extends ConsumerWidget {
           getTooltipItem: (group, groupIndex, rod, rodIndex) {
             return BarTooltipItem(
               '${rod.toY.round()} mm',
-              TextStyle(
+              const TextStyle(
                 color: Colors.blueGrey,
                 fontWeight: FontWeight.bold,
               ),
@@ -503,19 +503,19 @@ class DashboardScreen extends ConsumerWidget {
           },
         ),
       ),
-      titlesData: FlTitlesData(
+      titlesData: const FlTitlesData(
         show: true,
         bottomTitles: AxisTitles(
             sideTitles: SideTitles(
                 showTitles: true,
                 reservedSize: 30,
                 getTitlesWidget: _bottomTitles)),
-        leftTitles: const AxisTitles(
+        leftTitles: AxisTitles(
             sideTitles: SideTitles(showTitles: true, reservedSize: 40)),
         topTitles:
-            const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            AxisTitles(sideTitles: SideTitles(showTitles: false)),
         rightTitles:
-            const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            AxisTitles(sideTitles: SideTitles(showTitles: false)),
       ),
       gridData: const FlGridData(show: false),
       borderData: FlBorderData(show: false),
